@@ -1,0 +1,218 @@
+
+body{
+    background-color: #FFEBCD;
+}
+
+
+div.menubuttons{
+text-align: center ;
+}
+
+div.menubutton {
+    display: inline;
+    margin-left: 30px;
+
+}
+
+.bigheader{
+    font-size: 48px;
+    text-align: center;
+    color: black;
+}
+
+.smallheader{
+    font-size: 24px;
+    text-align: center;
+    color: black;
+}
+.contentbox{
+    margin: 5px;
+    width: auto;
+    height: 100%;
+    border-color: #A0A0A0;
+    overflow: auto;
+    font-family: Arial;
+}
+
+
+.buttonlink {
+    color: #B0B0B0;
+    font-size: 24px;
+    font-weight: bold;
+    text-decoration: none;
+}
+
+
+.presentationtable {
+	margin:0px;padding:0px;
+	width: 50%;
+	margin-left: auto;
+    margin-right: auto;
+	border:0px solid #000000;
+
+	-moz-border-radius-bottomleft:0px;
+	-webkit-border-bottom-left-radius:0px;
+	border-bottom-left-radius:0px;
+
+	-moz-border-radius-bottomright:0px;
+	-webkit-border-bottom-right-radius:0px;
+	border-bottom-right-radius:0px;
+
+	-moz-border-radius-topright:0px;
+	-webkit-border-top-right-radius:0px;
+	border-top-right-radius:0px;
+
+	-moz-border-radius-topleft:0px;
+	-webkit-border-top-left-radius:0px;
+	border-top-left-radius:0px;
+}
+
+.presentationtable {
+	margin:0px;padding:0px;
+	width: 50%;
+	margin-left: auto;
+    margin-right: auto;
+	border:0px solid #000000;
+
+	-moz-border-radius-bottomleft:0px;
+	-webkit-border-bottom-left-radius:0px;
+	border-bottom-left-radius:0px;
+
+	-moz-border-radius-bottomright:0px;
+	-webkit-border-bottom-right-radius:0px;
+	border-bottom-right-radius:0px;
+
+	-moz-border-radius-topright:0px;
+	-webkit-border-top-right-radius:0px;
+	border-top-right-radius:0px;
+
+	-moz-border-radius-topleft:0px;
+	-webkit-border-top-left-radius:0px;
+	border-top-left-radius:0px;
+}
+
+.presentationtable table{
+    border-collapse: collapse;
+    border-spacing: 0;
+	width:100%;
+	height:100%;
+	margin:0px;padding:0px;
+}
+
+.presentationtable tr:last-child td:last-child {
+	-moz-border-radius-bottomright:0px;
+	-webkit-border-bottom-right-radius:0px;
+	border-bottom-right-radius:0px;
+}
+
+.presentationtable table tr:first-child td:first-child {
+	-moz-border-radius-topleft:0px;
+	-webkit-border-top-left-radius:0px;
+	border-top-left-radius:0px;
+}
+
+.presentationtable table tr:first-child td:last-child {
+	-moz-border-radius-topright:0px;
+	-webkit-border-top-right-radius:0px;
+	border-top-right-radius:0px;
+}
+
+.presentationtable tr:last-child td:first-child{
+	-moz-border-radius-bottomleft:0px;
+	-webkit-border-bottom-left-radius:0px;
+	border-bottom-left-radius:0px;
+
+}
+
+.presentationtable tr:nth-child(odd):hover, .presentationtable tr:nth-child(even):hover{
+    background-color: #ffffff;
+}
+
+.presentationtable tr:nth-child(odd){
+    background-color: #d8d8d8;
+}
+
+
+.presentationtable tr:nth-child(even){
+    background-color: #e5e3e3;
+}
+
+.presentationtable td{
+	vertical-align:middle;
+	border:0px solid #000000;
+	border-width:0px 0px 0px 0px;
+	text-align:left;
+	padding:7px;
+	font-size: 10px;
+	font-family: Arial;
+	font-weight: normal;
+	color: #000000;
+}
+
+.presentationtable tr:last-child td{
+	border-width:0px 0px 0px 0px;
+}
+
+.presentationtable tr td:last-child{
+	border-width:0px 0px 0px 0px;
+}
+
+.presentationtable tr:last-child td:last-child{
+	border-width:0px 0px 0px 0px;
+}
+
+.presentationtable tr:first-child td, .tableheader{
+	background-color: #707070;
+	border:0px solid #000000;
+	text-align: center;
+	border-width: 0px 0px 0px 0px;
+	font-size: 14px;
+	font-family: Arial;
+	font-weight: bold;
+	color: #ffffff;
+}
+
+.presentationtable tr:first-child td:first-child{
+	border-width:0px 0px 0px 0px;
+}
+.presentationtable tr:first-child td:last-child{
+	border-width:0px 0px 0px 0px;
+}
+
+/*
+*   Koniec tabeli do przedstawiania wynikow
+*/
+
+.actionbutton{
+    display: block;
+    margin: 0 auto;
+}
+
+
+.operationtable{
+    width: 10%;
+    margin-top: 50px;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 50px;
+    background-color: #d8d8d8;
+    border: 1px solid #707070;
+    box-shadow: 0px 0px 5px #888888;
+    text-align: center;
+}
+
+
+.successbox{
+    border-style: solid;
+    border-color: #47B224;
+    border-width: 1px;
+    background: #B2FF99;
+    align: center;
+    /*margin: 0px;*/
+    text-align: center;
+    padding: 10px;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 35px;
+    width: 300px;
+}
