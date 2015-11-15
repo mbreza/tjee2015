@@ -3,6 +3,9 @@ package org.apache.jsp;
 import javax.servlet.*;
 import javax.servlet.http.*;
 import javax.servlet.jsp.*;
+import CRUD.domain.Car;
+import CRUD.domain.Emp;
+import CRUD.domain.Rent;
 
 public final class AllRent_jsp extends org.apache.jasper.runtime.HttpJspBase
     implements org.apache.jasper.runtime.JspSourceDependent {
@@ -30,7 +33,7 @@ public final class AllRent_jsp extends org.apache.jasper.runtime.HttpJspBase
     PageContext _jspx_page_context = null;
 
     try {
-      response.setContentType("text/html;charset=UTF-8");
+      response.setContentType("text/html; charset=UTF-8");
       pageContext = _jspxFactory.getPageContext(this, request, response,
       			null, true, 8192, true);
       _jspx_page_context = pageContext;
@@ -42,17 +45,15 @@ public final class AllRent_jsp extends org.apache.jasper.runtime.HttpJspBase
       _jspx_resourceInjector = (org.glassfish.jsp.api.ResourceInjector) application.getAttribute("com.sun.appserv.jsp.resource.injector");
 
       out.write("\n");
-      out.write("<!DOCTYPE HTML PUBLIC \"-//W3C//DTD HTML 4.01 Transitional//EN\"\n");
-      out.write("\"http://www.w3.org/TR/html4/loose.dtd\">\n");
+      out.write("<!DOCTYPE html PUBLIC \"-//W3C//DTD HTML 4.01 Transitional//EN\" \"http://www.w3.org/TR/html4/loose.dtd\">\n");
       out.write("<html>\n");
       out.write("    <head>\n");
       out.write("        <meta http-equiv=\"Content-Type\" content=\"text/html; charset=UTF-8\">\n");
       out.write("        <link rel=\"stylesheet\" type=\"text/css\" href=\"style.css\">\n");
-      out.write("        <title>Wypozyczalnia samochodow</title>\n");
+      out.write("        <title>Sklep muzyczny</title>\n");
       out.write("    </head>\n");
       out.write("\n");
       out.write("    <body>\n");
-      out.write("\n");
       out.write("    <p class=\"bigheader\">Wypozyczenia</p>\n");
       out.write("\n");
       out.write("            <div class=\"menubuttons\">\n");
@@ -63,6 +64,97 @@ public final class AllRent_jsp extends org.apache.jasper.runtime.HttpJspBase
       out.write("            </div>\n");
       out.write("\n");
       out.write("\n");
+      out.write("\n");
+      out.write("<div class=\"contentbox\">\n");
+      out.write("\n");
+      out.write("            <!--<a href=\"getEmpData.jsp\" class=\"buttonlink\"><div class=\"addbutton\">+</div></a>-->\n");
+      out.write("            <table class=\"operationtable\">\n");
+      out.write("                <tr class=\"tableheader\">\n");
+      out.write("                    <td colspan=\"6\">Operacje</td>\n");
+      out.write("                </tr>\n");
+      out.write("\n");
+      out.write("                <tr>\n");
+      out.write("                    <form action=\"selectRent.jsp\">\n");
+      out.write("                        <td><input type=\"text\" name=\"idselect\" value=\"Podaj ID\"/></td>\n");
+      out.write("                        <!--<td><a href=\"selectEmp.jsp\"><div class=\"opbutton\"><img src=\"graphic/select.png\"></div></a></td>-->\n");
+      out.write("                        <td><input type=\"image\" src=\"graphic/select.png\" border=\"0\" alt=\"Submit\" onclick=\"window.location.href='selectRent.jsp'\" /></td>\n");
+      out.write("                    </form>\n");
+      out.write("\n");
+      out.write("                    <form action=\"updateRent.jsp\">\n");
+      out.write("                        <td><input type='text' name='idupdate' value=\"Podaj ID\"/></td>\n");
+      out.write("                        <!--<td><a href=\"getRentData.jsp\"><div class=\"opbutton\"><img src=\"graphic/update.png\"></div></a></td>-->\n");
+      out.write("                        <td><input type=\"image\" src=\"graphic/update.png\" border=\"0\" alt=\"Submit\" /></td>\n");
+      out.write("                    </form>\n");
+      out.write("\n");
+      out.write("                    <form action=\"deleterent\">\n");
+      out.write("                        <td><input type='text' name='iddelete' value=\"Podaj ID\"/></td>\n");
+      out.write("                        <!--<td><a href=\"getRentData.jsp\"><div class=\"opbutton\"><img src=\"graphic/delete.png\"></div></a></td>-->\n");
+      out.write("                        <td><input type='image' src=\"graphic/delete.png\" border=\"0\" alt=\"Submit\"/></td>\n");
+      out.write("                    </form>\n");
+      out.write("                </tr>\n");
+      out.write("                                <tr>\n");
+      out.write("                                    <td colspan=\"6\"><a href=\"getRentData.jsp\"><div class=\"opbutton\"><img src=\"graphic/plus.png\"></div></a></td>\n");
+      out.write("                                </tr>\n");
+      out.write("            </table>\n");
+      out.write("\n");
+      out.write("            ");
+      CRUD.service.Storage storage = null;
+      synchronized (application) {
+        storage = (CRUD.service.Storage) _jspx_page_context.getAttribute("storage", PageContext.APPLICATION_SCOPE);
+        if (storage == null){
+          storage = new CRUD.service.Storage();
+          _jspx_page_context.setAttribute("storage", storage, PageContext.APPLICATION_SCOPE);
+        }
+      }
+      out.write("\n");
+      out.write("\n");
+      out.write("            <table class=\"presentationtable\" align=\"center\">\n");
+      out.write("            <tr>\n");
+      out.write("                <td>ID</td>\n");
+      out.write("                <td>Samochod</td>\n");
+      out.write("                <td>Pracownik</td>\n");
+      out.write("            </tr>\n");
+      out.write("            ");
+
+                           for (Rent rent : storage.getAllRents())
+                                                     {
+                                                         boolean Found = false;
+                                                         out.println("<tr><td>" + rent.getId_wypozyczenie() + "</td>");
+                                                         //Printing customer details
+                                                         for (Car car : storage.getAllCars())
+                                                         {
+                                                             if (car.getId_samochod() == rent.getSamochodID())
+                                                             {
+                                                                 out.println("<td>" + car.getMarka() + " " + car.getModel() + "</td>");
+                                                                 Found = true;
+                                                             }
+                                                         }
+                                                         if (!Found)
+                                                             out.println("<td>B/D</td>");
+                                                         else
+                                                             Found = false;
+                                                         //Printing employee details
+
+                                                         for (Emp emp : storage.getAllEmps())
+                                                         {
+                                                             if (emp.getId_pracownik() == rent.getPracownikID())
+                                                             {
+                                                                 out.println("<td>" + emp.getImie() + " " + emp.getNazwisko() + "</td>");
+                                                                 Found = true;
+                                                             }
+                                                         }
+
+                                                            if (!Found)
+                                                                out.println("<td>B/D</td>");
+                                                                else
+                                                                 Found = false;
+                                                         }
+
+                       
+      out.write("\n");
+      out.write("            </table>\n");
+      out.write("\n");
+      out.write("        </div>\n");
       out.write("    </body>\n");
       out.write("</html>");
     } catch (Throwable t) {
