@@ -4,7 +4,7 @@ import javax.servlet.*;
 import javax.servlet.http.*;
 import javax.servlet.jsp.*;
 
-public final class getCarData_jsp extends org.apache.jasper.runtime.HttpJspBase
+public final class addEmp_jsp extends org.apache.jasper.runtime.HttpJspBase
     implements org.apache.jasper.runtime.JspSourceDependent {
 
   private static final JspFactory _jspxFactory = JspFactory.getDefaultFactory();
@@ -51,7 +51,7 @@ public final class getCarData_jsp extends org.apache.jasper.runtime.HttpJspBase
       out.write("    </head>\n");
       out.write("\n");
       out.write("    <body>\n");
-      out.write("    <p class=\"bigheader\">Samochody</p>\n");
+      out.write("<p class=\"bigheader\">Pracownicy</p>\n");
       out.write("\n");
       out.write("            <div class=\"menubuttons\">\n");
       out.write("                <div class=\"menubutton\"><a href=\"index.jsp\"><img src=\"graphic/home.png\" class=\"menubuttonhome\"></a></div>\n");
@@ -60,7 +60,10 @@ public final class getCarData_jsp extends org.apache.jasper.runtime.HttpJspBase
       out.write("                <div class=\"menubutton\"><a href=\"AllEmp.jsp\"><img src=\"graphic/emp.png\" class=\"menubutton\"></a></div>\n");
       out.write("            </div>\n");
       out.write("\n");
-      out.write("        ");
+      out.write("\n");
+      out.write("\n");
+      out.write("        <div class=\"contentbox\">\n");
+      out.write("            ");
       CRUD.service.Storage storage = null;
       synchronized (application) {
         storage = (CRUD.service.Storage) _jspx_page_context.getAttribute("storage", PageContext.APPLICATION_SCOPE);
@@ -70,49 +73,31 @@ public final class getCarData_jsp extends org.apache.jasper.runtime.HttpJspBase
         }
       }
       out.write("\n");
-      out.write("        ");
-      CRUD.domain.Car car = null;
+      out.write("            ");
+      CRUD.domain.Emp emp = null;
       synchronized (session) {
-        car = (CRUD.domain.Car) _jspx_page_context.getAttribute("car", PageContext.SESSION_SCOPE);
-        if (car == null){
-          car = new CRUD.domain.Car();
-          _jspx_page_context.setAttribute("car", car, PageContext.SESSION_SCOPE);
+        emp = (CRUD.domain.Emp) _jspx_page_context.getAttribute("emp", PageContext.SESSION_SCOPE);
+        if (emp == null){
+          emp = new CRUD.domain.Emp();
+          _jspx_page_context.setAttribute("emp", emp, PageContext.SESSION_SCOPE);
         }
       }
       out.write("\n");
+      out.write("            ");
+      org.apache.jasper.runtime.JspRuntimeLibrary.introspect(_jspx_page_context.findAttribute("emp"), request);
       out.write("\n");
       out.write("\n");
-      out.write("        <div class=\"contentbox\">\n");
-      out.write("            <form action=\"addCar.jsp\">\n");
-      out.write("            <table class=\"operationtable\">\n");
-      out.write("                <tr class='tableheader'>\n");
-      out.write("                    <td colspan='2'>Dodawanie samochodu</td>\n");
-      out.write("                </tr>\n");
-      out.write("                <tr>\n");
-      out.write("                    <td>Marka:</td>\n");
-      out.write("                    <td><input type=\"text\" name=\"marka\" /></td>\n");
-      out.write("                </tr>\n");
-      out.write("                <tr>\n");
-      out.write("                    <td>Model:</td>\n");
-      out.write("                    <td><input type=\"text\" name=\"model\"  /></td>\n");
-      out.write("                </tr>\n");
-      out.write("                <tr>\n");
-      out.write("                    <td>Kolor:</td>\n");
-      out.write("                    <td><input type=\"text\" name=\"kolor\" /></td>\n");
-      out.write("                </tr>\n");
-      out.write("                <tr>\n");
-      out.write("                    <td>Rok produkcji:</td>\n");
-      out.write("                    <td><input type=\"int\" name=\"rok_produkcji\"  /></td>\n");
-      out.write("                </tr>\n");
-      out.write("                <tr>\n");
-      out.write("                    <td>Opis:</td>\n");
-      out.write("                    <td><input type=\"text\" name=\"opis\"  /></td>\n");
-      out.write("                </tr>\n");
-      out.write("                <tr>\n");
-      out.write("                    <td colspan=\"2\"><input type=\"submit\" value=\" DODAJ \" align=\"right\"></td>\n");
-      out.write("                </tr>\n");
-      out.write("            </table>\n");
-      out.write("            </form>\n");
+      out.write("            ");
+
+            storage.add(emp);
+            
+      out.write("\n");
+      out.write("\n");
+      out.write("            <div class=\"successbox\">Pomyślnie dodano klienta do bazy.</div>\n");
+      out.write("\n");
+      out.write("            <p align=\"center\">\n");
+      out.write("                <a href=\"AllEmp.jsp\">Powrót do listy klientów</a>\n");
+      out.write("            </p>\n");
       out.write("        </div>\n");
       out.write("    </body>\n");
       out.write("</html>");

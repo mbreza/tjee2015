@@ -4,9 +4,9 @@ import javax.servlet.*;
 import javax.servlet.http.*;
 import javax.servlet.jsp.*;
 import java.io.PrintWriter;
-import CRUD.domain.Car;
+import CRUD.domain.Emp;
 
-public final class selectCar_jsp extends org.apache.jasper.runtime.HttpJspBase
+public final class updateEmp_jsp extends org.apache.jasper.runtime.HttpJspBase
     implements org.apache.jasper.runtime.JspSourceDependent {
 
   private static final JspFactory _jspxFactory = JspFactory.getDefaultFactory();
@@ -57,14 +57,14 @@ public final class selectCar_jsp extends org.apache.jasper.runtime.HttpJspBase
       out.write("    </head>\n");
       out.write("\n");
       out.write("    <body>\n");
-      out.write("       <p class=\"bigheader\">Samochody</p>\n");
+      out.write("        <p class=\"bigheader\">Wypozyczalnia samochodow</p>\n");
       out.write("\n");
-      out.write("                  <div class=\"menubuttons\">\n");
-      out.write("                      <div class=\"menubutton\"><a href=\"index.jsp\"><img src=\"graphic/home.png\" class=\"menubuttonhome\"></a></div>\n");
-      out.write("                      <div class=\"menubutton\"><a href=\"AllRent.jsp\"><img src=\"graphic/rent.png\" class=\"menubutton\"></a></div>\n");
-      out.write("                      <div class=\"menubutton\"><a href=\"AllCar.jsp\"><img src=\"graphic/car.png\" class=\"menubutton\"></a></div>\n");
-      out.write("                      <div class=\"menubutton\"><a href=\"AllEmp.jsp\"><img src=\"graphic/emp.png\" class=\"menubutton\"></a></div>\n");
-      out.write("                  </div>\n");
+      out.write("                    <div class=\"menubuttons\">\n");
+      out.write("                        <div class=\"menubutton\"><a href=\"index.jsp\"><img src=\"graphic/home.png\" class=\"menubuttonhome\"></a></div>\n");
+      out.write("                        <div class=\"menubutton\"><a href=\"AllRent.jsp\"><img src=\"graphic/rent.png\" class=\"menubutton\"></a></div>\n");
+      out.write("                        <div class=\"menubutton\"><a href=\"AllCar.jsp\"><img src=\"graphic/car.png\" class=\"menubutton\"></a></div>\n");
+      out.write("                        <div class=\"menubutton\"><a href=\"AllEmp.jsp\"><img src=\"graphic/emp.png\" class=\"menubutton\"></a></div>\n");
+      out.write("                    </div>\n");
       out.write("\n");
       out.write("        ");
       CRUD.service.Storage storage = null;
@@ -77,18 +77,18 @@ public final class selectCar_jsp extends org.apache.jasper.runtime.HttpJspBase
       }
       out.write("\n");
       out.write("        ");
-      CRUD.domain.Car car = null;
+      CRUD.domain.Emp emp = null;
       synchronized (session) {
-        car = (CRUD.domain.Car) _jspx_page_context.getAttribute("car", PageContext.SESSION_SCOPE);
-        if (car == null){
-          car = new CRUD.domain.Car();
-          _jspx_page_context.setAttribute("car", car, PageContext.SESSION_SCOPE);
+        emp = (CRUD.domain.Emp) _jspx_page_context.getAttribute("emp", PageContext.SESSION_SCOPE);
+        if (emp == null){
+          emp = new CRUD.domain.Emp();
+          _jspx_page_context.setAttribute("emp", emp, PageContext.SESSION_SCOPE);
         }
       }
       out.write("\n");
       out.write("\n");
       out.write("        ");
-      org.apache.jasper.runtime.JspRuntimeLibrary.introspect(_jspx_page_context.findAttribute("car"), request);
+      org.apache.jasper.runtime.JspRuntimeLibrary.introspect(_jspx_page_context.findAttribute("emp"), request);
       out.write("\n");
       out.write("\n");
       out.write("        <div class=\"contentbox\">\n");
@@ -97,22 +97,23 @@ public final class selectCar_jsp extends org.apache.jasper.runtime.HttpJspBase
       out.write("\n");
       out.write("                ");
 
-                    String Id_samochod = request.getParameter("idpselect");
-                    String Marka = "", Model = "", Kolor = "", Opis="";
-                    int Rok_produkcji =-1;
-                    for (Car c : storage.getAllCars())
+                   String ID = request.getParameter("idupdate");
+                    String Imie = "", Nazwisko = "", Stanowisko = "";
+                    int Pesel = -1, Pensja = -1;
+                    for (Emp e : storage.getAllEmps())
                     {
-                        if (c.getId_samochod() == Integer.parseInt(Id_samochod))
+                        if (e.getId_pracownik() == Integer.parseInt(ID))
                         {
-                            Marka = c.getMarka();
-                            Model = c.getModel();
-                            Kolor = c.getKolor();
-                            Rok_produkcji = c.getRok_produkcji();
-                            Opis = c.getOpis();
+                            Imie = e.getImie();
+                            Nazwisko = e.getNazwisko();
+                            Stanowisko = e.getStanowisko();
+                            Pesel = e.getPesel();
+                            Pensja = e.getPensja();
                             break;
                         }
                     }
-                    out.println("<tr class='tableheader'><td colspan='2'>Samochod ID=" + Id_samochod + "</td></tr><tr><td>Marka:</td><td>" + Marka + "</td></tr><tr><td>Model:</td><td>" + Model + "</td></tr><tr><td>Kolor:</td><td>" + Kolor + "</td></tr><tr><td>Rok produkcji:</td><td>" + Integer.toString(Rok_produkcji) + "</td></tr><tr><td>Opis:</td><td>" + Opis + "</td></tr>");
+                    out.println("<form action='updateemp'><input type='hidden' name='id_pracownik' value='" + ID + "' /><tr class='tableheader'><td colspan='2'>Pracownik ID=" + ID + "</td></tr><tr><td>Imie:</td><td><input type='text' name='imie' value='" + Imie + "' /></td></tr><tr><td>Nazwisko:</td><td><input type='text' name='nazwisko' value='" + Nazwisko + "' /></td></tr><tr><td>Stanowisko:</td><td><input type='text' name='stanowisko' value='" + Stanowisko + "' /></td></tr><tr><td>Pesel:</td><td><input type='text' name='pesel' value='" + Integer.toString(Pesel) + "' /></td><tr><td>Pansja:</td><td><input type='text' name='pensja' value='" + Integer.toString(Pensja) + "' /></td></tr></tr><tr><td colspan='2'><input type='submit' value='ZAPISZ'></td></tr></form>");
+                    out.println("<p align='center'><a href='showAllEmps.jsp'>Powrót do listy klientów</a></p>");
                 
       out.write("\n");
       out.write("\n");

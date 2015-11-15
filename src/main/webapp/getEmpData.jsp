@@ -9,7 +9,7 @@ pageEncoding="UTF-8"%>
     </head>
 
     <body>
-    <p class="bigheader">Samochody</p>
+    <p class="bigheader">Pracownicy</p>
 
             <div class="menubuttons">
                 <div class="menubutton"><a href="index.jsp"><img src="graphic/home.png" class="menubuttonhome"></a></div>
@@ -19,34 +19,34 @@ pageEncoding="UTF-8"%>
             </div>
 
         <jsp:useBean id="storage" class="CRUD.service.Storage" scope="application" />
-        <jsp:useBean id="car" class="CRUD.domain.Car" scope="session" />
+        <jsp:useBean id="emp" class="CRUD.domain.Emp" scope="session" />
 
 
         <div class="contentbox">
-            <form action="addCar.jsp">
+            <form action="addEmp.jsp">
             <table class="operationtable">
                 <tr class='tableheader'>
                     <td colspan='2'>Dodawanie samochodu</td>
                 </tr>
                 <tr>
-                    <td>Marka:</td>
-                    <td><input type="text" name="marka" /></td>
+                    <td>Imie:</td>
+                    <td><input type="text" name="imie"  /></td>
                 </tr>
                 <tr>
-                    <td>Model:</td>
-                    <td><input type="text" name="model"  /></td>
+                    <td>Nazwisko:</td>
+                    <td><input type="text" name="nazwisko"  /></td>
                 </tr>
                 <tr>
-                    <td>Kolor:</td>
-                    <td><input type="text" name="kolor" /></td>
+                    <td>Stanowisko:</td>
+                    <td><input type="text" name="stanowisko"  /></td>
                 </tr>
                 <tr>
-                    <td>Rok produkcji:</td>
-                    <td><input type="int" name="rok_produkcji"  /></td>
+                    <td>Pesel:</td>
+                    <td><input type="int" name="pesel"  /></td>
                 </tr>
                 <tr>
-                    <td>Opis:</td>
-                    <td><input type="text" name="opis"  /></td>
+                    <td>Pensja:</td>
+                    <td><input type="text" name="pensja" /></td>
                 </tr>
                 <tr>
                     <td colspan="2"><input type="submit" value=" DODAJ " align="right"></td>

@@ -93,8 +93,6 @@ public final class addCar_jsp extends org.apache.jasper.runtime.HttpJspBase
             
       out.write("\n");
       out.write("\n");
-      out.write("            <div class=\"successbox\">Pomyślnie dodano klienta do bazy.</div>\n");
-      out.write("\n");
       out.write("            <p align=\"center\">\n");
       out.write("                <a href=\"AllCar.jsp\">Powrót do listy klientów</a>\n");
       out.write("            </p>\n");

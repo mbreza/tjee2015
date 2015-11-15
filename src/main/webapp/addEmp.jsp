@@ -9,7 +9,7 @@ pageEncoding="UTF-8"%>
     </head>
 
     <body>
-<p class="bigheader">Samochody</p>
+<p class="bigheader">Pracownicy</p>
 
             <div class="menubuttons">
                 <div class="menubutton"><a href="index.jsp"><img src="graphic/home.png" class="menubuttonhome"></a></div>
@@ -22,15 +22,15 @@ pageEncoding="UTF-8"%>
 
         <div class="contentbox">
             <jsp:useBean id="storage" class="CRUD.service.Storage" scope="application" />
-            <jsp:useBean id="car" class="CRUD.domain.Car" scope="session" />
-            <jsp:setProperty name="car" property="*" />
+            <jsp:useBean id="emp" class="CRUD.domain.Emp" scope="session" />
+            <jsp:setProperty name="emp" property="*" />
 
             <%
-            storage.add(car);
+            storage.add(emp);
             %>
 
             <p align="center">
-                <a href="AllCar.jsp">Powrót do listy klientów</a>
+                <a href="AllEmp.jsp">Powrót do listy klientów</a>
             </p>
         </div>
     </body>

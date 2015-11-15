@@ -25,10 +25,7 @@ pageEncoding="UTF-8" import="CRUD.domain.Car"%>
             <!--<a href="getCarData.jsp" class="buttonlink"><div class="addbutton">+</div></a>-->
             <table class="operationtable">
                 <tr class="tableheader">
-                    <td colspan="2">Operacje</td>
-                </tr>
-                <tr>
-                    <td colspan="2"><a href="getCarData.jsp"><div class="opbutton"><img src="graphic/plus.png"></div></a></td>
+                    <td colspan="6">Operacje</td>
                 </tr>
                 <tr>
                     <form action="selectCar.jsp">
@@ -36,22 +33,26 @@ pageEncoding="UTF-8" import="CRUD.domain.Car"%>
                         <!--<td><a href="selectCar.jsp"><div class="opbutton"><img src="graphic/select.png"></div></a></td>-->
                         <td><input type="image" src="graphic/select.png" border="0" alt="Submit" onclick="window.location.href='selectCar.jsp'" /></td>
                     </form>
-                </tr>
-                <tr>
+
                     <form action="updateCar.jsp">
                         <td><input type='text' name='idupdate' value="Podaj ID"/></td>
                         <!--<td><a href="getCarData.jsp"><div class="opbutton"><img src="graphic/update.png"></div></a></td>-->
                         <td><input type="image" src="graphic/update.png" border="0" alt="Submit" /></td>
                     </form>
-                </tr>
-                <tr>
+
                     <form action="deletecar">
                         <td><input type='text' name='iddelete' value="Podaj ID"/></td>
                         <!--<td><a href="getCarData.jsp"><div class="opbutton"><img src="graphic/delete.png"></div></a></td>-->
                         <td><input type='image' src="graphic/delete.png" border="0" alt="Submit"/></td>
                     </form>
                 </tr>
+
+                                            <tr>
+                                                <td colspan="6"><a href="getCarData.jsp"><div class="opbutton"><img src="graphic/plus.png"></div></a></td>
+                                            </tr>
             </table>
+
+
 
             <jsp:useBean id="storage" class="CRUD.service.Storage" scope="application" />
 

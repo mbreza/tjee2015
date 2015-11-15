@@ -53,7 +53,6 @@ public final class index_jsp extends org.apache.jasper.runtime.HttpJspBase
       out.write("\n");
       out.write("<body>\n");
       out.write("                <p class=\"bigheader\">Wypozyczalnia samochodow.</p>\n");
-      out.write("                <p class=\"smallheader\">Poprzez ikonki mozesz przemieszczac sie po stronach.</p>\n");
       out.write("\n");
       out.write("            <div class=\"menubuttons\">\n");
       out.write("                <div class=\"menubutton\"><a href=\"index.jsp\"><img src=\"graphic/home.png\" class=\"menubuttonhome\"></a></div>\n");

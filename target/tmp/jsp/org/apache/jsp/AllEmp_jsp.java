@@ -3,6 +3,7 @@ package org.apache.jsp;
 import javax.servlet.*;
 import javax.servlet.http.*;
 import javax.servlet.jsp.*;
+import CRUD.domain.Emp;
 
 public final class AllEmp_jsp extends org.apache.jasper.runtime.HttpJspBase
     implements org.apache.jasper.runtime.JspSourceDependent {
@@ -30,7 +31,7 @@ public final class AllEmp_jsp extends org.apache.jasper.runtime.HttpJspBase
     PageContext _jspx_page_context = null;
 
     try {
-      response.setContentType("text/html;charset=UTF-8");
+      response.setContentType("text/html; charset=UTF-8");
       pageContext = _jspxFactory.getPageContext(this, request, response,
       			null, true, 8192, true);
       _jspx_page_context = pageContext;
@@ -60,6 +61,79 @@ public final class AllEmp_jsp extends org.apache.jasper.runtime.HttpJspBase
       out.write("                <div class=\"menubutton\"><a href=\"AllRent.jsp\"><img src=\"graphic/rent.png\" class=\"menubutton\"></a></div>\n");
       out.write("                <div class=\"menubutton\"><a href=\"AllCar.jsp\"><img src=\"graphic/car.png\" class=\"menubutton\"></a></div>\n");
       out.write("                <div class=\"menubutton\"><a href=\"AllEmp.jsp\"><img src=\"graphic/emp.png\" class=\"menubutton\"></a></div>\n");
+      out.write("            </div>\n");
+      out.write("\n");
+      out.write("<div class=\"contentbox\">\n");
+      out.write("\n");
+      out.write("            <!--<a href=\"getEmpData.jsp\" class=\"buttonlink\"><div class=\"addbutton\">+</div></a>-->\n");
+      out.write("            <table class=\"operationtable\">\n");
+      out.write("                <tr class=\"tableheader\">\n");
+      out.write("                    <td colspan=\"6\">Operacje</td>\n");
+      out.write("                </tr>\n");
+      out.write("\n");
+      out.write("                <tr>\n");
+      out.write("                    <form action=\"selectEmp.jsp\">\n");
+      out.write("                        <td><input type=\"text\" name=\"idpselect\" value=\"Podaj ID\"/></td>\n");
+      out.write("                        <!--<td><a href=\"selectEmp.jsp\"><div class=\"opbutton\"><img src=\"graphic/select.png\"></div></a></td>-->\n");
+      out.write("                        <td><input type=\"image\" src=\"graphic/select.png\" border=\"0\" alt=\"Submit\" onclick=\"window.location.href='selectEmp.jsp'\" /></td>\n");
+      out.write("                    </form>\n");
+      out.write("\n");
+      out.write("                    <form action=\"updateEmp.jsp\">\n");
+      out.write("                        <td><input type='text' name='idupdate' value=\"Podaj ID\"/></td>\n");
+      out.write("                        <!--<td><a href=\"getEmpData.jsp\"><div class=\"opbutton\"><img src=\"graphic/update.png\"></div></a></td>-->\n");
+      out.write("                        <td><input type=\"image\" src=\"graphic/update.png\" border=\"0\" alt=\"Submit\" /></td>\n");
+      out.write("                    </form>\n");
+      out.write("                    <form action=\"deleteemp\">\n");
+      out.write("                        <td><input type='text' name='iddelete' value=\"Podaj ID\"/></td>\n");
+      out.write("                        <!--<td><a href=\"getEmpData.jsp\"><div class=\"opbutton\"><img src=\"graphic/delete.png\"></div></a></td>-->\n");
+      out.write("                        <td><input type='image' src=\"graphic/delete.png\" border=\"0\" alt=\"Submit\"/></td>\n");
+      out.write("                    </form>\n");
+      out.write("                </tr>\n");
+      out.write("                                <tr>\n");
+      out.write("                                    <td colspan=\"6\"><a href=\"getEmpData.jsp\"><div class=\"opbutton\"><img src=\"graphic/plus.png\"></div></a></td>\n");
+      out.write("                                </tr>\n");
+      out.write("            </table>\n");
+      out.write("\n");
+      out.write("            ");
+      CRUD.service.Storage storage = null;
+      synchronized (application) {
+        storage = (CRUD.service.Storage) _jspx_page_context.getAttribute("storage", PageContext.APPLICATION_SCOPE);
+        if (storage == null){
+          storage = new CRUD.service.Storage();
+          _jspx_page_context.setAttribute("storage", storage, PageContext.APPLICATION_SCOPE);
+        }
+      }
+      out.write("\n");
+      out.write("\n");
+      out.write("            <table class=\"presentationtable\" align=\"center\">\n");
+      out.write("            <tr>\n");
+      out.write("                <td>ID</td>\n");
+      out.write("                <td>Imie</td>\n");
+      out.write("                <td>Nazwisko</td>\n");
+      out.write("                <td>Stanowisko</td>\n");
+      out.write("                <td>Pesel</td>\n");
+      out.write("                <td>Pensja</td>\n");
+      out.write("                <!--<td colspan=\"3\">Operacje</td>-->\n");
+      out.write("            </tr>\n");
+      out.write("            ");
+
+                for (Emp emp : storage.getAllEmps())
+                {
+                    out.println(
+                    "<tr><td>" + emp.getId_pracownik() + "</td>" +
+                    "<td>" + emp.getImie() + "</td>" +
+                    "<td>" + emp.getNazwisko() + "</td>" +
+                    "<td>" + emp.getStanowisko() + "</td>" +
+                    "<td>" + emp.getPesel() + "</td>" +
+                    "<td>" + emp.getPensja() + "</td>" +
+                    /*"<td><img src=" + "graphic/select.png" + " class=\"actionbutton\"></td>" +
+                    "<td><img src=" + "graphic/update.png" + " class=\"actionbutton\"></td>" +
+                    "<td><img src=" + "graphic/delete.png" + " class=\"actionbutton\"></td>" +*/
+                    "</tr>");
+                }
+            
+      out.write("\n");
+      out.write("            </table>\n");
       out.write("            </div>\n");
       out.write("\n");
       out.write("\n");

@@ -10,7 +10,6 @@
 
 <body>
                 <p class="bigheader">Wypozyczalnia samochodow.</p>
-                <p class="smallheader">Poprzez ikonki mozesz przemieszczac sie po stronach.</p>
 
             <div class="menubuttons">
                 <div class="menubutton"><a href="index.jsp"><img src="graphic/home.png" class="menubuttonhome"></a></div>
