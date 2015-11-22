@@ -21,7 +21,7 @@ pageEncoding="UTF-8"%>
 
 
         <div class="contentbox">
-            <jsp:useBean id="storage" class="CRUD.service.Storage" scope="application" />
+            <jsp:useBean id="storage" class="CRUD.service.StorageService" scope="application" />
             <jsp:useBean id="car" class="CRUD.domain.Car" scope="session" />
             <jsp:setProperty name="car" property="*" />
 

@@ -7,6 +7,7 @@ pageEncoding="UTF-8" import="CRUD.domain.Emp"%>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <link rel="stylesheet" type="text/css" href="style.css">
         <title>Wypozyczalnia samochodow</title>
+  <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
     </head>
 
     <body>
@@ -51,34 +52,30 @@ pageEncoding="UTF-8" import="CRUD.domain.Emp"%>
                                 </tr>
             </table>
 
-            <jsp:useBean id="storage" class="CRUD.service.Storage" scope="application" />
+            <jsp:useBean id="storage" class="CRUD.service.StorageService" scope="application" />
 
-            <table class="presentationtable" align="center">
-            <tr>
-                <td>ID</td>
-                <td>Imie</td>
-                <td>Nazwisko</td>
-                <td>Stanowisko</td>
-                <td>Pesel</td>
-                <td>Pensja</td>
-                <!--<td colspan="3">Operacje</td>-->
-            </tr>
-            <%
-                for (Emp emp : storage.getAllEmps())
-                {
-                    out.println(
-                    "<tr><td>" + emp.getId_pracownik() + "</td>" +
-                    "<td>" + emp.getImie() + "</td>" +
-                    "<td>" + emp.getNazwisko() + "</td>" +
-                    "<td>" + emp.getStanowisko() + "</td>" +
-                    "<td>" + emp.getPesel() + "</td>" +
-                    "<td>" + emp.getPensja() + "</td>" +
-                    /*"<td><img src=" + "graphic/select.png" + " class=\"actionbutton\"></td>" +
-                    "<td><img src=" + "graphic/update.png" + " class=\"actionbutton\"></td>" +
-                    "<td><img src=" + "graphic/delete.png" + " class=\"actionbutton\"></td>" +*/
-                    "</tr>");
-                }
-            %>
+<table class="presentationtable" align="center">
+
+  <tr>
+  <th>ID</th>
+  <th>Imie</th>
+  <th>Nazwisko</th>
+  <th>Stanowisko</th>
+  <th>Pesel</th>
+  <th>Pensja</th>
+  </tr>
+
+  <tr>
+<c:forEach var="empss" items="${storage.getAllEmps()}">
+     <td><c:out value="${empss.getId_pracownik()}"></c:out></td>
+     <td><c:out value="${empss.getImie()}"></c:out></td>
+     <td><c:out value="${empss.getNazwisko()}"></c:out></td>
+     <td><c:out value="${empss.getStanowisko()}"></c:out></td>
+     <td><c:out value="${empss.getPesel()}"></c:out></td>
+     <td><c:out value="${empss.getPensja()}"></c:out></td>
+
+     </c:forEach>
+ </tr>
             </table>
             </div>
 
